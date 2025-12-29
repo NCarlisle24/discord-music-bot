@@ -2,4 +2,6 @@
 
 
 add requirements.txt with:
-{content: pip freeze > requirements.txt}
+'''
+pip freeze > requirements.txt
+'''
