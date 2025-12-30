@@ -9,11 +9,15 @@ import os
 
 # constants
 COMMAND_PREFIX = "!"
+"""Defines the character/s used to call commands in Discord."""
+
 TRACKED_CHANNEL_IDS = [1400122378222174382]
+"""The list of channel IDs for the bot to get commands from."""
 
 # get info from the env file
 load_dotenv()
 BOT_KEY = os.getenv("BOT_KEY")
+"""The Discord bot's key (keep private)"""
 
 # specify what the bot will access
 intents = discord.Intents.default()
@@ -39,8 +43,10 @@ async def on_message(message):
 
 # ---------------------------------------------- begin helper functions ---------------------------------------------- #
 
+# TODO: Make the function name/functionality more intuitive
 def user_in_voice_channel(ctx):
     """Returns true if the user is in a voice channel, false otherwise."""
+
     if ctx.author.voice:
         return True
     else:
@@ -94,5 +100,7 @@ async def leave(ctx):
         return
     
     await ctx.voice_client.disconnect()
+
+# ---------------------------------------------- run the bot ---------------------------------------------- #
 
 bot.run(BOT_KEY)
